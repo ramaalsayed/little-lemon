@@ -9,10 +9,13 @@ import Menu from "./Menu";
 import greek from "./icons_assets/greek salad.jpg";
 import lemon from "./icons_assets/lemon dessert.jpg";
 import bruch from "./icons_assets/bruchetta.svg";
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
+  const [number, setNumber] = React.useState(1);
+  function increment() {
+    setNumber((prevNumber) => prevNumber + 1);
+  }
   return (
     <div className="App">
       <div className="navo">
@@ -27,6 +30,10 @@ function App() {
       </section>
       {/* <img src={restfood} alt="rest" className="mainphoto" /> */}
       <Footer />
+      <h1 data-test-id="currentNumber">{number}</h1>
+      <button data-testid="add-one" onClick={increment}>
+        Add one
+      </button>
     </div>
   );
 }
